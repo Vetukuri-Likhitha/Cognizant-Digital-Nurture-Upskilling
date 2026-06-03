@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Event Feedback</title>
+
+    <style>
+
+        body{
+            font-family: Arial;
+            background-color: #f2f2f2;
+        }
+
+        .box{
+            width: 400px;
+            margin: auto;
+            background-color: white;
+            padding: 30px;
+        }
+
+        input, select, textarea{
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+        }
+
+        img{
+            width: 200px;
+            height: 120px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="box">
+
+        <h2>Event Feedback Form</h2>
+
+        <!-- onblur -->
+
+        <label>Phone Number:</label>
+
+        <input type="text"
+               id="phone"
+               onblur="validatePhone()">
+
+        <p id="phoneMsg"></p>
+
+        <!-- onchange -->
+
+        <label>Select Event:</label>
+
+        <select onchange="showFee(this.value)">
+
+            <option value="">Choose Event</option>
+            <option value="500">Music Festival</option>
+            <option value="300">Food Carnival</option>
+            <option value="400">Sports Meet</option>
+
+        </select>
+
+        <p id="fee"></p>
+
+        <!-- key events -->
+
+        <label>Feedback:</label>
+
+        <textarea onkeyup="countChars(this)"></textarea>
+
+        <p id="count">Characters: 0</p>
+
+        <!-- ondblclick -->
+
+        <img src="music.jpeg"
+             ondblclick="enlargeImage(this)">
+
+        <br><br>
+
+        <!-- onclick -->
+
+        <button onclick="showConfirm()">
+            Submit
+        </button>
+
+        <p id="confirm"></p>
+
+    </div>
+
+    <script>
+
+        function validatePhone(){
+
+            let phone =
+            document.getElementById("phone").value;
+
+            if(phone.length != 10){
+
+                document.getElementById("phoneMsg")
+                .innerHTML = "Enter valid phone number";
+
+            }
+            else{
+
+                document.getElementById("phoneMsg")
+                .innerHTML = "Valid Number";
+
+            }
+
+        }
+
+        function showFee(value){
+
+            document.getElementById("fee")
+            .innerHTML = "Event Fee: ₹" + value;
+
+        }
+
+        function showConfirm(){
+
+            document.getElementById("confirm")
+            .innerHTML = "Feedback Submitted Successfully";
+
+        }
+
+        function enlargeImage(img){
+
+            img.style.width = "350px";
+            img.style.height = "220px";
+
+        }
+
+        function countChars(text){
+
+            document.getElementById("count")
+            .innerHTML =
+            "Characters: " + text.value.length;
+
+        }
+
+    </script>
+
+</body>
+</html>

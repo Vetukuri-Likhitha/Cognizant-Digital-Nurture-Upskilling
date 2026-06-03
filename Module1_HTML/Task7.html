@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Video Invite</title>
+
+    <style>
+
+        body{
+            font-family: Arial;
+            background-color: #f2f2f2;
+        }
+
+        .box{
+            width: 500px;
+            margin: auto;
+            background-color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        video{
+            width: 100%;
+            height: 400px;
+        }
+
+    </style>
+
+</head>
+
+<body onbeforeunload="return warningMessage()">
+
+    <div class="box">
+
+        <h2>Community Event Promo</h2>
+
+        <video controls oncanplay="videoReady()">
+
+            <source src="promo.mp4" type="video/mp4">
+
+        </video>
+
+        <p id="message"></p>
+
+    </div>
+
+    <script>
+
+        function videoReady(){
+
+            document.getElementById("message").innerHTML =
+            "Video ready to play";
+
+        }
+
+       function warningMessage(){
+
+    event.preventDefault();
+    event.returnValue = "";
+
+}
+
+    </script>
+
+</body>
+</html>

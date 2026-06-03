@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Geolocation</title>
+
+    <style>
+
+        body{
+            font-family: Arial;
+            background-color: #f2f2f2;
+        }
+
+        .box{
+            width: 400px;
+            margin: auto;
+            background-color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        button{
+            padding: 10px;
+            width: 100%;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="box">
+
+        <h2>Find Nearby Community Events</h2>
+
+        <button onclick="getLocation()">
+            Find Nearby Events
+        </button>
+
+        <p id="location"></p>
+
+    </div>
+
+    <script>
+
+        function getLocation(){
+
+            if(navigator.geolocation){
+
+                navigator.geolocation.getCurrentPosition(showPosition);
+
+            }
+            else{
+
+                document.getElementById("location").innerHTML =
+                "Geolocation not supported";
+
+            }
+
+        }
+
+      function showPosition(position){
+
+    document.getElementById("location").innerHTML =
+
+    "Nearby Events:<br><br>" +
+
+    "Music Festival - City Hall<br>" +
+
+    "Food Carnival - Central Park<br>" +
+
+    "Sports Meet - Community Stadium";
+
+}
+
+    </script>
+
+</body>
+</html>
